@@ -69,7 +69,17 @@ namespace DatatypeGame
                 Console.WriteLine();
                 Console.WriteLine("Vælg dit svar: 1. Int, 2. Double, 3. Boolean, 4. String or 5. Char");
 
-                int choice = int.Parse(Console.ReadLine());
+                
+                string stringChoice = Console.ReadLine();
+                int choice = -1;
+                if(int.TryParse(stringChoice, out int n))
+                {
+                    choice = int.Parse(stringChoice);
+                }
+                else
+                {
+                    Console.WriteLine("Du har srkevet noget ind der ikke kunne parses og mister derfor et liv");
+                }
 
                 if(choice == randomDatatype)
                 {
